@@ -1,12 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-    window.addEventListener('message', function(event) {
-        const allowedOrigin = "https://alfakher2019.github.io";
-        if (event.origin !== allowedOrigin) return;
+var iframe = document.getElementById('iframe');
 
-        const height = typeof event.data === "number" ? event.data : event.data.iframeHeight;
-        if (height) {
-            const iframe = document.getElementById('iframe');
-            if (iframe) iframe.style.height = height + 'px';
-        }
-    });
-});
+        window.addEventListener('message', function (event) {
+            if (event.origin === "https://alfakher2019.github.io") {
+                var height = typeof event.data === "number" ? event.data : event.data.iframeHeight;
+                if (height) iframe.style.height = height + 'px';
+            }
+        });
